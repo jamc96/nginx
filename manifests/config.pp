@@ -10,6 +10,7 @@ class nginx::config {
     ensure => $nginx::config_ensure,
     owner  => 'nginx',
     group  => 'nginx',
+    selinux_ignore_defaults => true,
   }
   # create directories
   file { $nginx::config_dir_path: ensure => directory }
