@@ -1,0 +1,7 @@
+---
+nginx::package_ensure: 'present'
+nginx::config_ensure: 'present'
+nginx::config_dir_path: '/etc/nginx'
+nginx::config_file_path: '/etc/nginx/nginx.conf'
+nginx::log_dir_path: '/var/log/nginx'
+nginx::service_ensure: 'running'

@@ -5,12 +5,12 @@
 # @example
 #   include nginx
 class nginx(
-  Enum['present', 'absent'] $package_ensure = 'present',
-  Enum['present', 'absent'] $config_ensure = 'present',
-  String $condi_dir_path = '/etc/nginx',
-  String $config_file_path = '/etc/nginx/nginx.conf',
-  String $log_dir_path = '/var/log/nginx',
-  Enum['running', 'stopped'] $service_ensure = 'running',
+  Enum['present', 'absent'] $package_ensure,
+  Enum['present', 'absent'] $config_ensure,
+  String $config_dir_path,
+  String $config_file_path,
+  String $log_dir_path,
+  Enum['running', 'stopped'] $service_ensure,
 ) {
   # class containment
   include ::nginx::install
