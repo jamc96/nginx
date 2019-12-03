@@ -18,6 +18,12 @@ class nginx::config {
     ensure => directory,
     mode   => $nginx::log_dir_mode,
   }
+  exec { 'logs permissions':
+    command     => "chown -R nginx:nginx ${$nginx::log_dir_path}",
+    path        => ['/usr/bin', '/usr/sbin'],
+    refreshonly => true,
+    subscribe   => File[$nginx::log_dir_path],
+  }
   # create config files
   file { $nginx::config_file_path:
     notify  => Service['nginx'],
