@@ -10,6 +10,7 @@ class nginx(
   String $config_dir_path,
   String $config_file_path,
   String $log_dir_path,
+  String $log_dir_mode,
   Enum['running', 'stopped'] $service_ensure,
 ) {
   # class containment

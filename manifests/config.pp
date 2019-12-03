@@ -16,7 +16,7 @@ class nginx::config {
   file { $nginx::config_dir_path: ensure => directory }
   file { $nginx::log_dir_path:
     ensure => directory,
-    mode   => '0775',
+    mode   => $nginx::log_dir_mode,
   }
   # create config files
   file { $nginx::config_file_path:
